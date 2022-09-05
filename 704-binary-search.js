@@ -9,7 +9,7 @@
  
 // Non-recursive way
 // Time complexity: O(log n)
-// 
+// Space complexity: O(1)
 var search = function(nums, target) {
     
     // set initial index
