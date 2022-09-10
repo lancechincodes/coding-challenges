@@ -79,7 +79,7 @@ class SinglyLinkedList {
         const newHead = new Node(val)
         if(!this.head) {
             this.head = newHead
-            this.tail = newHead
+            this.tail = this.head
         }
         else {
             newHead.next = this.head
@@ -89,6 +89,17 @@ class SinglyLinkedList {
         return this // returns the entire LL
     }
 
+    // get method (return value at inputted index)
+    get(index) {
+        if (index < 0 || index >= this.length) return undefined // check if index is valid
+        let currentNode = this.head
+        let counter = 0
+        while(currentNode) {
+            if (counter === index) return currentNode // return node at index
+            counter++
+            currentNode = currentNode.next
+        }
+    }
 
 }
 
@@ -107,4 +118,10 @@ linkedList.pop()
 linkedList.shift()
 
 // Checking unshift method
-console.log(linkedList.unshift(5))
+linkedList.unshift(5)
+linkedList.unshift(7)
+
+console.log(linkedList)
+
+// Checking get method
+console.log(linkedList.get(0))
