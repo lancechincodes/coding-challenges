@@ -74,6 +74,21 @@ class SinglyLinkedList {
         return currentHead // returns the 1st node that is removed
     }
 
+    // unshift method (add new head to LL)
+    unshift(val) {
+        const newHead = new Node(val)
+        if(!this.head) {
+            this.head = newHead
+            this.tail = newHead
+        }
+        else {
+            newHead.next = this.head
+            this.head = newHead
+        }
+        this.length++
+        return this // returns the entire LL
+    }
+
 
 }
 
@@ -82,13 +97,14 @@ const linkedList = new SinglyLinkedList()
 linkedList.push(1)
 linkedList.push(2)
 linkedList.push(3)
-console.log(linkedList.push(4))
+linkedList.push(4)
 
 // Checking pop method
-console.log(linkedList.pop())
-console.log(linkedList.pop())
+linkedList.pop()
+linkedList.pop()
 
 // Checking shift method
-console.log(linkedList.shift())
+linkedList.shift()
 
-console.log(linkedList)
+// Checking unshift method
+console.log(linkedList.unshift(5))
