@@ -101,6 +101,16 @@ class SinglyLinkedList {
         }
     }
 
+    // set method (update value at index)
+    set(index, val) {
+        let foundNode = this.get(index)
+        if(foundNode) {
+            foundNode.val = val
+            return true
+        }
+        return false
+    }
+
 }
 
 // Checking push method
@@ -121,7 +131,8 @@ linkedList.shift()
 linkedList.unshift(5)
 linkedList.unshift(7)
 
-console.log(linkedList)
-
 // Checking get method
-console.log(linkedList.get(0))
+linkedList.get(0)
+
+// Checking set method
+console.log(linkedList.set(2, 3))
