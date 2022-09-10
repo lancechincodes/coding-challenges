@@ -33,11 +33,42 @@ class SinglyLinkedList {
         this.length++
         return this // returns entire LL
     }
+
+    // pop method
+    pop() {
+        if (!this.head) return undefined
+        let currentNode = this.head
+        let previousNode = currentNode
+
+        // traverse LL until you reach tail
+        while(currentNode.next) {
+            previousNode = currentNode
+            currentNode = currentNode.next
+        }
+
+        this.tail = previousNode
+        previousNode.next = null
+        this.length--
+
+        // in the case that LL has a only 1 node left to pop (otherwise the head and tail will remain)
+        if (this.length === 0) {
+            this.head = null
+            this.tail = null
+        }
+        return currentNode // value of the node removed
+    }
 }
 
 // Checking push method
-// const linkedList = new SinglyLinkedList()
-// console.log(linkedList.push(1))
-// console.log(linkedList.push(2))
-// console.log(linkedList.push(3))
-// console.log(linkedList.push(4))
+const linkedList = new SinglyLinkedList()
+linkedList.push(1)
+linkedList.push(2)
+linkedList.push(3)
+console.log(linkedList.push(4))
+
+// Checking pop method
+console.log(linkedList.pop())
+console.log(linkedList.pop())
+console.log(linkedList.pop())
+console.log(linkedList.pop())
+console.log(linkedList.pop())
