@@ -55,8 +55,26 @@ class SinglyLinkedList {
             this.head = null
             this.tail = null
         }
-        return currentNode // value of the node removed
+        return currentNode // returns node that was removed
     }
+
+    // shift method (remove 1st node)
+    shift() {
+        if (!this.head) return undefined
+        let currentHead = this.head
+        this.head = currentHead.next
+        this.length--
+
+        // in the case that LL has a only 1 node left to shift (otherwise the head and tail will remain)
+        if (this.length === 0) {
+            this.head = null
+            this.tail = null
+        }   
+
+        return currentHead // returns the 1st node that is removed
+    }
+
+
 }
 
 // Checking push method
@@ -69,6 +87,8 @@ console.log(linkedList.push(4))
 // Checking pop method
 console.log(linkedList.pop())
 console.log(linkedList.pop())
-console.log(linkedList.pop())
-console.log(linkedList.pop())
-console.log(linkedList.pop())
+
+// Checking shift method
+console.log(linkedList.shift())
+
+console.log(linkedList)
