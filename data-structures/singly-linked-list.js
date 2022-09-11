@@ -111,6 +111,47 @@ class SinglyLinkedList {
         return false
     }
 
+    // insert method (insert new node at index)
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false // invalid index
+
+        if (index === this.length) {
+            this.push(val)
+            return true
+        }
+        else if (index === 0) {
+            this.unshift(val)
+            return true
+        }
+
+        // otherwise
+        const newNode= new Node(val)
+        let previousNode = this.get(index - 1)
+        let tempPreviousNode = previousNode.next
+        previousNode.next = newNode
+        newNode.next = tempPreviousNode
+
+        this.length++
+        return true
+    }
+
+    // remove method (remove node at index)
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined
+        if (index === this.length - 1) return this.pop() 
+        else if (index === 0) return this.shift()
+
+        //  otherwise
+        let previousNode = this.get(index - 1)
+        let removedNode = previousNode.next
+        previousNode.next = removedNode.next
+        this.length--
+        return removedNode
+    }
+
+    // reverse method (in place aka don't make a duplicate)
+
+
 }
 
 // Checking push method
@@ -135,4 +176,13 @@ linkedList.unshift(7)
 linkedList.get(0)
 
 // Checking set method
-console.log(linkedList.set(2, 3))
+linkedList.set(2, 3)
+
+// Checking insert method
+linkedList.insert(0, 100)
+linkedList.insert(1,98)
+console.log(linkedList)
+
+// Checking remove method
+console.log(linkedList.remove(1))
+console.log(linkedList)
