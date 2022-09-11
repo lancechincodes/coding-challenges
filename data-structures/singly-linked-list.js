@@ -149,9 +149,34 @@ class SinglyLinkedList {
         return removedNode
     }
 
-    // reverse method (in place aka don't make a duplicate)
+    // reverse method (reverse LL in place aka don't make a duplicate)
+    reverse() {
+        let current = this.head
+        this.head = this.tail
+        this.tail = current
+            
+        let previous = null
+        let next
+        while(current) {
+            next = current.next
+            current.next = previous
+            previous = current
+            current = next
+        }
+        
+        return this
+    }
 
-
+    // print (to display in an array - not about being efficient!)
+    print() {
+        let arr = []
+        let current = this.head
+        while(current) {
+            arr.push(current.val)
+            current = current.next
+        }
+        console.log(arr)
+    }
 }
 
 // Checking push method
@@ -181,8 +206,11 @@ linkedList.set(2, 3)
 // Checking insert method
 linkedList.insert(0, 100)
 linkedList.insert(1,98)
-console.log(linkedList)
 
 // Checking remove method
-console.log(linkedList.remove(1))
-console.log(linkedList)
+linkedList.remove(1)
+
+// Checking reverse method
+linkedList.print()
+linkedList.reverse()
+linkedList.print()
