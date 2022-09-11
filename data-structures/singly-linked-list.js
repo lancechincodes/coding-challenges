@@ -5,6 +5,12 @@
 // piece of data - val
 // reference to next node - next
 
+// Time complexity analysis
+// *Insertion - O(1) at beginning and end (push/unshift)
+// *Deletion - O(1) at beginning (shift) but O(n) at end (pop)
+// Searching - O(n) (get)
+// Accessing - O(n) (get)
+
 class Node {
     constructor(val) {
         this.val = val
