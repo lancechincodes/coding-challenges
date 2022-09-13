@@ -11,6 +11,16 @@ class Node {
 // - Insertion: O(log n)
 // - Searching: O(log n)
 
+// Tree Traversal Analysis
+// BFS vs DFS
+// Time complexity is SAME 
+// - If there is a wide tree, BFS takes more space (queue)
+// - If there is a long one-sided tree, BFS will take very little space
+
+// DFS Variants
+// Pre-order: Order that is re-constructable (root is first)
+// Post-order: N/A
+// In-order: Nodes are in underlying order (Lowest to Highest)
 class BinarySearchTree {
     constructor() {
         this.root = null
@@ -158,4 +168,3 @@ console.log(tree.postOrder()) // [3,8,6,12,15,10]
 
 // Testing depth first search in order tree traversal
 console.log(tree.inOrder()) // [3,6,8,10,12,15]
-
