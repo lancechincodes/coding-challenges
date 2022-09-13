@@ -6,11 +6,18 @@ class Node {
     }
 }
 
+// Big O Analysis
+// Time complexity
+// - Insertion: O(log n)
+// - Searching: O(log n)
+
+
 class BinarySearchTree {
     constructor() {
         this.root = null
     }
 
+    // insert a new node
     insert(val) {
         const newNode = new Node(val)
         if (!this.root) {
@@ -37,7 +44,22 @@ class BinarySearchTree {
         }
     }
 
-    
+    // locate node and return boolean based on if exists or not
+    find(val) {
+        if (!this.root) return false
+        let currentNode = this.root
+        while(currentNode) {
+            if (val === currentNode.value) return true
+            else if (val > currentNode.value) {
+                currentNode = currentNode.right
+            }
+            else if (val < currentNode.value) {
+                currentNode = currentNode.left
+            }
+        }
+        return false
+    }
+
 }
 
 const tree = new BinarySearchTree()
@@ -48,3 +70,11 @@ tree.insert(6)
 tree.insert(15)
 tree.insert(15)
 console.log(tree.insert(12))
+
+// Testing find method
+console.log(tree.find(10)) // true
+console.log(tree.find(6)) // true
+console.log(tree.find(15)) // true
+console.log(tree.find(12)) // true
+console.log(tree.find(8)) // false
+console.log(tree.find(25)) // false
