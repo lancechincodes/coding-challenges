@@ -74,6 +74,23 @@ class BinarySearchTree {
         return visited
     }
 
+    // traverse tree with DFS Pre-Order w/ recursion (visit entire left side, then right side)
+    preOrder() {
+        let visited = []
+        let current = this.root
+
+        // helper function
+        function traverse(node) {
+            visited.push(node.value)
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right)
+        }
+
+        traverse(current)
+        return visited
+    }
+
+
 }
 
 const tree = new BinarySearchTree()
@@ -100,3 +117,6 @@ tree.find(25) // false
 
 // Testing breadth first search tree traversal 
 console.log(tree.breadthFirstSearch()) // [10,6,15,3,8,12]
+
+// Testing depth first search pre order tree traversal
+console.log(tree.preOrder()) // [10,6,3,8,15,12]
