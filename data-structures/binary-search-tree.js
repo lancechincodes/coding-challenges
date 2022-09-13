@@ -90,7 +90,7 @@ class BinarySearchTree {
         return visited
     }
 
-    // traverse tree with DFS Pre-Order w/ recursion (don't add to visited until you checked left and right side for nodes)'
+    // traverse tree with DFS Post-Order w/ recursion (don't add to visited until you checked left and right side for nodes)'
     postOrder() {
         let visited = []
         let current = this.root
@@ -100,6 +100,22 @@ class BinarySearchTree {
             if (node.left) traverse(node.left)
             if (node.right) traverse(node.right)
             visited.push(node.value)
+        }
+
+        traverse(current)
+        return visited
+    }
+
+    // traverse tree with DFS In-Order w/ recursion (traverse down left, add to visited node, traverse right)
+    inOrder() {
+        let visited = []
+        let current = this.root
+
+        // helper function
+        function traverse(node) {
+            if (node.left) traverse(node.left)
+            visited.push(node.value)
+            if (node.right) traverse(node.right)
         }
 
         traverse(current)
@@ -141,5 +157,5 @@ console.log(tree.preOrder()) // [10,6,3,8,15,12]
 console.log(tree.postOrder()) // [3,8,6,12,15,10]
 
 // Testing depth first search in order tree traversal
-console.log(tree.postOrder()) // [3,6,8,10,15,12]
+console.log(tree.inOrder()) // [3,6,8,10,12,15]
 
