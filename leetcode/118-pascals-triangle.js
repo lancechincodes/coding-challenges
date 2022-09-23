@@ -14,7 +14,7 @@ A: Nested for loop
 - Return the resulting pascal triangle
 */
 
-// Time complexity: O(n^2)
+// Time complexity: O(n^2) nested for loop
 // Space complexity: O(n)
 var generate = function(numRows) {
     let result = []
