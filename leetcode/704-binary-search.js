@@ -52,3 +52,21 @@ var search = function(nums, target) {
     middleNumber < target, startIndex is 3, endIndex is still 2, newMiddleIndex is 2 BUT
     startIndex > endIndex which is a problem so loop should stop
 */
+
+// Recursive Approach
+// Time complexity: O(log n)
+// Space complexity: O(1)
+var search = function(nums, target, start = 0, end = nums.length -1) {
+    let middleIndex = Math.floor((start + end) / 2)
+    if (start > end) return -1
+    
+    if (nums[middleIndex] === target) return middleIndex
+    else if (nums[middleIndex] > target) {
+        end = middleIndex - 1
+        return search(nums, target, start, end)
+    }
+    else {
+        start = middleIndex + 1
+        return search(nums, target, start, end)
+    }
+};
