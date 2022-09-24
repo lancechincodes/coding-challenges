@@ -18,7 +18,7 @@ Otherwise backtrack the binary tree
 
 Step-by-step walk through example for [1,2,3]
 
-***CALL STACK*** (1 asterisk means first recursive call and dash means second recursive call & 2 asterisk means finished)
+***CALL STACK*** (1 asterisk means first recursive call, dash means second recursive call, and 2 asterisk means finished)
 subsets(nums,0,[],[]) *-*
 subsets(nums,1.[],[]) *-*
 subsets(nums,2,[],[]) *-*
