@@ -76,3 +76,31 @@ var subsets = function(nums, depth = 0, subset = [], results = []) {
     }
     return results
 };
+
+// Same TC/SC, but utilizing helper function this time
+// i is equivalent to depth from last solution
+// Recursive dfs template for combinations, subsets, and permutations
+var subsets = function(nums) {
+    // create global result
+    let result = []
+    
+    // recursive dfs helper
+    const dfs = (i, nums, subset) => {        
+        // base case
+        if (i === nums.length) {
+            result.push([...subset])
+            return
+        }
+        
+        // exclude
+        dfs(i + 1, nums, subset)
+        
+        // include
+        subset.push(nums[i])
+        dfs(i + 1, nums, subset)
+        subset.pop()
+    }
+    
+    dfs(0, nums, [])
+    return result
+};
