@@ -44,7 +44,7 @@ var permuteUnique = function(nums) {
             // swap value at i and j
             [nums[i], nums[j]] = [nums[j], nums[i]]    
             dfs(i + 1, nums); // semi-colon must be here, i + 1 indicates moving to next level down in BT
-            // unswap to go back up tree
+            // unswap as you go back up tree
             [nums[i], nums[j]] = [nums[j], nums[i]]
         }
     }
