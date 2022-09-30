@@ -24,7 +24,25 @@ var isPalindrome = function(x) {
     const originalString = x.toString()
     const reversedString = originalString.split("").reverse().join("")
     
-    if (originalString === reversedString) return true
-    
-    return false
+    return originalString === reversedString
 };
+
+// Challenge: Without converting int to str
+// TC: O(n)
+// SC: O(1)
+var isPalindrome = function(x) {
+    // edge case
+    if (x < 0) return false
+
+    let quotient = x
+    let remainder
+    let reversedNumberStr = ''
+    while (quotient !== 0) {
+        remainder = quotient % 10
+        reversedNumberStr += remainder
+        quotient = Math.floor(quotient / 10)
+
+    }
+
+    return x === Number(reversedNumberStr)
+}
