@@ -101,3 +101,26 @@ var lengthOfLongestSubstring = function(s) {
     
     return maxLength
 };
+
+// sliding window w/ set (Redone slightly cleaner)
+// TC: 0(n) // add, delete, has, and size run on sublinear time (on avg. O(1))
+// SC: O(n) 
+var lengthOfLongestSubstring = function(s) {
+    let i = 0 
+    let j = 0
+    let set = new Set() // add, delete, has, size methods
+    let longestS = 0, currentS = 0
+    while (j < s.length) {
+        if (!set.has(s[j])) {
+            set.add(s[j])
+            currentS = set.size // .size ~ .length() for arr
+            longestS = Math.max(currentS, longestS)
+            j++
+        }
+        else {
+            set.delete(s[i])
+            i++
+        }
+    }
+    return longestS
+};
