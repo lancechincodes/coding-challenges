@@ -33,3 +33,29 @@ var maxArea = function(height) {
     
     return maxArea
 };
+
+// 2 pointer approach (one at beg and one at end) 
+// Same sol, just another go at the problem
+// TC: O(n)
+// SC: O(1)
+var maxArea = function(height) {
+
+    let maxArea = 0, currArea = 0
+    let i = 0, j = height.length - 1
+    let currWidth, currHeight
+    while (i < j) {
+        currWidth = j - i
+        currHeight = Math.min(height[i], height[j])
+        currArea = currWidth * currHeight
+        maxArea = Math.max(currArea, maxArea)
+
+        if (height[i] >= height[j]) {
+            j--
+        }
+        else {
+            i++
+        }
+    }
+
+    return maxArea
+};
