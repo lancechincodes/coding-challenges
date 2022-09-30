@@ -7,7 +7,7 @@
 /*
 R: 
 Input - array of numbers and target number
-Task - find all unique combionations where candidates numbers sum to target
+Task - find all unique combinations where candidates numbers sum to target
     - each number in candidates must only be used once in the combination
 Output - combinations (arr of arrs)
 
