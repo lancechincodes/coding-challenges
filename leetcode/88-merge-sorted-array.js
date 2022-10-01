@@ -10,7 +10,7 @@ Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1
 
 A: 
-2 pointer approach (basically 3 pointers)
+3 pointer approach
 start index pointer at end of nums1
 start first pointer at index of m - 1 (largest num of values that matters in nums1)
 start second pointer at index of n - 1 (largest num of values that matters in nums2)
