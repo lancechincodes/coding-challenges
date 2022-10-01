@@ -62,19 +62,19 @@ var intToRoman = function(num) {
     let romanConversion = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
 
     let result = ''
-    function buildResult(occurences,idx) {
-        for (let i = 0; i < occurences; i++) {
+    function buildResult(occurrences,idx) {
+        for (let i = 0; i < occurrences; i++) {
             result += roman[idx]
         }    
     }
 
     let idx = 0
-    let quotient = num, remainder, occurences
+    let quotient = num, remainder, occurrences
     while (idx < romanConversion.length) {
         if (Math.floor(quotient / romanConversion[idx]) > 0) {
             remainder = quotient % romanConversion[idx]
-            occurences = Math.floor(quotient / romanConversion[idx])
-            buildResult(occurences, idx)
+            occurrences = Math.floor(quotient / romanConversion[idx])
+            buildResult(occurrences, idx)
             quotient = remainder
         }
         idx++
