@@ -56,3 +56,37 @@ var searchInsert = function(nums, target) {
     // if target < num at the end --> leftIndex will be take the num at middleIndex's place
     return leftIndex
 }
+
+// More readable solution
+
+// Binary search variant
+// TC: O(log n) dividing by half each run
+// SC: O(1)
+var searchInsert = function(nums, target) {
+
+    const bs = (middle, start, end) => {
+        middle = Math.floor((start + (start - end)) / 2) // trick to avoid runtime call stack error
+
+        if (nums[middle] === target) {
+            return middle
+        }
+        else if (start === end) {
+            return target > nums[start] ? start + 1 : start 
+        }
+        else if (nums[middle] < target) {
+            start = middle + 1
+        }
+        else {
+            end = middle - 1
+        }
+
+        return bs(middle, start, end)
+    }
+    
+    let startIdx = 0
+    let endIdx = nums.length - 1
+    let middleIdx
+
+    let result = bs(middleIdx, startIdx, endIdx)
+    return result
+};
