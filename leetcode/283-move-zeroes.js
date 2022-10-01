@@ -1,45 +1,61 @@
-// R: given an array of ints, move 0s to the end while maintaining relative order of non-zero elements
+/*
+R: Input - int arr nums
+Task - move all 0s to end of arr while maintaining relative order of non-zero elements
+Output - same nums arr (in place w/o copy of arr)
 
-// E: [0, 0, 1, 0, 3, 12]
-// output: [1, 3, 12, 0, 0, 0]
+E: 
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
 
-// A: 2 pointers
-// Define 1st pointer at index 0 (i) and 2nd pointer at index 1 (j)
+Edge cases 
+if empty, 1 element, or no zeros -> return untouched nums
 
-// while j is less than the length of nums (iterate through entire arr)
-    // check if values need to be switched (point 1 is 0 and pointer 2 is non-zero)
-        // if so, switch values and iterate to next pointers
-    // else if values are both 0 
-        // only move up second pointer
-    // else (cases wheres values do NOT need to be switched)
-        // move up both pointers
+A: 2 pointers
+i at index 0 and j at index 1
+while j is not at end 
+    if nums[i] === 0 && nums[j] !== 0 swap i++ & j++
+    else if nums[i] === 0 && nums[j] === 0 j++
+    else if nums[i] !== 0 && nums[j] === 0 i++ j++
+    else if nums[i] !== 0 && nums[j] !== 0 i++ j++
+return nums
+*/
 
-// return the array
-
-// Time complexity: O(n) linear iterating through array one time
-// Space complexity: O(1) not creating a copy of the array nor a new array
-
+// TC: O(n)
+// SC: O(1)
 var moveZeroes = function(nums) {
-        
-    let i = 0
-    let j = 1
-    
+
+    let i = 0, j = 1
     while (j < nums.length) {
-        if (nums[i] === 0 && nums[j] !== 0) { // cases where pointer 1 is 0 and pointer 2 is not 0, switch and move both pointers
-            nums[i] = nums[j]
-            nums[j] = 0
-            j++
+        if (nums[i] === 0 && nums[j] !== 0) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
             i++
         }
-        else if (nums[i] === 0 && nums[j] === 0) { // cases where pointers' values are 0, only move second pointer
-            j++
-        }
-        else { // cases where both pointers are NOT 0 or cases where pointer 1 is not zero and pointer 2 is 0, move both pointers
+        else if (nums[i] !== 0 && nums[j] === 0) {
             i++
-            j++
         }
+        else  if (nums[i] !== 0 && nums[j] !== 0) {
+            i++
+        }
+        j++
     }
-    
+
     return nums
-    
+};
+
+// Challenge: Could you minimize the total number of operations done?
+// combine else if statement
+var moveZeroes = function(nums) {
+    let i = 0, j = 1
+    while (j < nums.length) {
+        if (nums[i] === 0 && nums[j] !== 0) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            i++
+        }
+        else if (nums[i] !== 0 && nums[j] === 0 || nums[i] !== 0 && nums[j] !== 0) {
+            i++
+        }
+        j++
+    }
+
+    return nums
 };
