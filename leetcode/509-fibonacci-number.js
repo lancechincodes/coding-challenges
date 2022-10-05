@@ -32,7 +32,8 @@ A:
 // TC: O(2^n) exponential
 // SC: O(n) space complexity is proportional to the maximum depth of the recursion tree
 var fib = function(n) {
-    if (n <= 1) return n
+    if (n === 0) return 0
+    if (n === 1) return 1
 
     return fib(n-1) + fib(n-2)
 };
