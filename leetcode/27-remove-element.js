@@ -1,6 +1,6 @@
 /*
 R: Input - arr of nums and int val
-Task - remove all occurences of val in nums (in place) 
+Task - remove all occurrences of val in nums (in place) 
     - relative order of elements may be changed
 Output - k slots of nums that are filled with non-val nums
 
