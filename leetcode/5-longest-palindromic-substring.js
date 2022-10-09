@@ -49,7 +49,8 @@ var longestPalindrome = function(s) {
     return longestSS    
 };
 
-// Optimize
+// Optimize - idea is to eliminate isPalindrome check to reduce time complexity by O(n) 
+    // instead use inside out approach for even and odd potential palindromes
 // Helper function to get indices of longest left and right palindrome with the ith element as the middle
 const getIndices = (left, right, s) => {
     while (left >= 0 && right < s.length) {
