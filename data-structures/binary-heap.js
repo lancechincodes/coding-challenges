@@ -55,6 +55,58 @@ class MaxBinaryHeap {
             parentIndex = Math.floor((index-1) / 2)
         }
     }
+
+    // remove the root (max in case max binary heap)
+    // swap last element into root's position then bubble down
+    extractMax() {
+        // swap first value with last value
+        this.swap(0, this.values.length-1)
+        let extractedMax = this.values.pop()
+
+        // bubble down
+        this.bubbleDown()
+        return extractedMax
+    }
+    
+    bubbleDown() {
+        let parentIndex = 0
+        let leftChildIndex = 2 * parentIndex + 1
+        let rightChildIndex = 2 * parentIndex + 2
+        // continue until parent value is larger than right AND left values
+        while(this.values[rightChildIndex] > this.values[parentIndex] || this.values[leftChildIndex] > this.values[parentIndex]) {
+            // if both left and right values are larger, swap with the largest child
+            if (this.values[rightChildIndex] > this.values[parentIndex] && this.values[leftChildIndex] > this.values[parentIndex]) {
+                if (this.values[rightChildIndex] > this.values[leftChildIndex]) {
+                    this.swap(parentIndex, rightChildIndex)
+                    parentIndex = rightChildIndex
+                }
+                else {
+                    this.swap(parentIndex, leftChildIndex)
+                    parentIndex = leftChildIndex
+                }
+            }
+            // if right value is larger
+            else if (this.values[rightChildIndex] > this.values[parentIndex]) {
+                this.swap(parentIndex, rightChildIndex)
+                parentIndex = rightChildIndex
+            }
+            // if left value is larger
+            else if (this.values[leftChildIndex] > this.values[parentIndex]) {
+                this.swap(parentIndex, leftChildIndex)
+                parentIndex = leftChildIndex
+            }
+
+            leftChildIndex = 2 * parentIndex + 1
+            rightChildIndex = 2 * parentIndex + 2
+        }
+    }
+
+    // helper function for swapping 2 values
+    swap(firstIndex, secondIndex) {
+        let temp = this.values[firstIndex]
+        this.values[firstIndex] = this.values[secondIndex]
+        this.values[secondIndex] = temp
+    }
 }
 
 // Testing methods
@@ -79,5 +131,9 @@ maxBinaryHeap.insert(55) // [55,39,41,18,27,12,33]
         39       41
       18  27   12  33
 */
-maxBinaryHeap.insert(1) // [55,39,41,18,27,12,33,1]
-maxBinaryHeap.insert(45) // [55.45.41.39,27,12,33,1,18]
+
+// Testing extractMax method
+console.log(maxBinaryHeap.extractMax()) // 55
+console.log(maxBinaryHeap) // [41,39,33,18,27,12]
+console.log(maxBinaryHeap.extractMax()) // 41
+console.log(maxBinaryHeap) // [39,27,33,18,12]
