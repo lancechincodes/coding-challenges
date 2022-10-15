@@ -1,5 +1,6 @@
 /*
-R: Input - root of binary tree and int targetSum
+R: 
+Input - root of binary tree and int targetSum
 Output - return true if the root to leaf sums up to targetSum
     - return false otherwise
 
@@ -15,7 +16,7 @@ Explanation: There two root-to-leaf paths in the tree:
 (1 --> 3): The sum is 4.
 There is no root-to-leaf path with sum = 5.
 
-Edge case
+Edge case if no root
 Input: root = [], targetSum = 0
 Output: false
 Explanation: Since the tree is empty, there are no root-to-leaf paths.
