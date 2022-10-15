@@ -1,6 +1,6 @@
 /*
 R: Input - root of binary tree and int targetSum
-Ouput - return true if the root to leaf sums up to targetSum
+Output - return true if the root to leaf sums up to targetSum
     - return false otherwise
 
 E:
@@ -47,3 +47,4 @@ var hasPathSum = function(root, targetSum) {
     }
 
     return dfs(root, targetSum)
+}
