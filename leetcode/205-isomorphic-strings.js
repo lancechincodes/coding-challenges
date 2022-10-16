@@ -25,8 +25,8 @@ A: Hash and set used in combination
     - return replacedS === t 
 */
 
-// TC: O(n)
-// SC: O(n)
+// TC: O(n), One pass through at a time
+// SC: O(n), Storing memory in set and hash
 var isIsomorphic = function(s, t) {
     let hashS = {}
     let set = new Set()
