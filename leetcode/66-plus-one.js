@@ -54,6 +54,8 @@ A:
 // };
 
 // Same TC and SC but a bit cleaner solution
+// TC: O(n) for loop and unshift
+// SC: O(1)
 var plusOne = function(digits) {
     for (let i = digits.length - 1; i >= 0; i--) {
         digits[i]++
