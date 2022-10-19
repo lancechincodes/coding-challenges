@@ -51,3 +51,22 @@ var diagonalSum = function(mat) {
 
     return primarySum + secondarySum
 };
+
+// O: 
+// Optimize TC
+// TC: O(n)
+// SC: O(1)
+var diagonalSum = function(mat) {
+    let sum = 0
+    for (let i = 0; i < mat.length; i++) {
+        sum = sum + mat[i][i] + mat[i][mat.length - 1 - i]
+    }
+
+    // check if you need to subtract overlapping middle square -> odd rows/cols
+    if (mat.length % 2 === 1) {
+        let middleIndex = Math.floor(mat.length / 2)
+        sum -= mat[middleIndex][middleIndex]
+    }
+
+    return sum
+};
