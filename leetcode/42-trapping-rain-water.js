@@ -15,6 +15,9 @@ maxLeft  | 0 0 1 1 2 2 2 2 3 3 3 3
 maxRight | 3 3 3 3 3 3 3 2 2 2 1 0
 min(L,R) | 0 0 1 1 2 2 2 2 2 2 1 0
 
+sum = min(L,R) - input 
+- Note: 0 if sum is negative
+
 sum      | 0 0 1 0 1 2 1 0 0 1 0 0  -> 6 (ANSWER)
 
 Input: height = [4,2,0,3,2,5]
@@ -55,7 +58,7 @@ var trap = function(height) {
         }
     }
 
-    // reverse maxRight
+    // reverse maxRight (O(n) operation)
     maxRight = maxRight.reverse()
 
     // calculate min(L,R)
