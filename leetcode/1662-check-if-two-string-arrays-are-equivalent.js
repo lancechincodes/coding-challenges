@@ -1,7 +1,7 @@
 /*
 R: 
 Input - 2 string arrs
-Output - Booleean when concatened into respective strings
+Output - Boolean when concatenated into respective strings
     - true if same string
     - false otherwise
 
@@ -22,7 +22,7 @@ Output: true
 A:
 - For loop to add sections of word1 together
 - For loop to add sections of word2 together
-- Return boolean based if the concatened versions are equal or not
+- Return boolean based if the concatenated versions are equal or not
 */
 
 // TC: O(n + m), n and m are respective length of word1 and word2 arrs 
