@@ -40,3 +40,10 @@ var arrayStringsAreEqual = function(word1, word2) {
 
     return concatenatedWord1 === concatenatedWord2
 };
+
+// Simpler solution
+// TC: Same
+// SC: Same
+var arrayStringsAreEqual = function(word1, word2) {
+    return word1.join("") === word2.join("")
+};
