@@ -43,3 +43,32 @@ var selfDividingNumbers = function(left, right) {
 
     return result
 };
+
+// Slight optimization / Alt solution (additional conditionals to avoid having to go through nested for loops if not necessary)
+var selfDividingNumbers = function(left, right) {
+    let result = []
+    for (let i = left; i <= right; i++) {
+        let strI = String(i)
+        if (strI.length === 1 || isSelfDividing(strI)) {
+            result.push(i)
+        }
+    }
+
+    return result
+}
+
+function isSelfDividing(strI) {
+    const numberI = Number(strI)
+    let result
+    
+    for (let i = 0; i < strI.length; i++) {
+        let digit = Number(strI[i])
+        if (digit === 0 || numberI % digit !== 0) {
+            result = false
+            break
+        }
+        result = true
+    }
+
+    return result
+}
