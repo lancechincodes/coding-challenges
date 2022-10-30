@@ -1,3 +1,28 @@
+/*
+R:
+Input - int arr nums
+Output - boolean if any value appears at least twice in the arr
+
+E:
+Input: nums = [1,2,3,1]
+Output: true
+
+Input: nums = [1,2,3,4]
+Output: false
+
+Input: nums = [1,1,1,3,3,4,3,2,4,2]
+Output: true
+
+A:
+- Hashmap approach
+- Iterate through numbers in nums
+    - if already in hash
+        - return true
+    - else 
+        - define number in hash
+- return false loop goes to the end
+*/
+
 // Time complexity: O(n)
 // Space complexity: O(n)
 var containsDuplicate = function(nums) {
