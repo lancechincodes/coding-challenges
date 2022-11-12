@@ -12,4 +12,18 @@ Input: head = [7,7,7,7], val = 7
 Output: []
 
 A: 
+- Create dummy node
+- Set dummy.next pointing to head
+- Set prev to be dummy
+- Set current node to be head
+
+- While curr exists
+    - if curr.val !== val
+        - set prev to curr
+        - set curr to curr.next
+    - else 
+        - set prev.next pointing to curr.next
+        - set curr to curr.next
+
+- Return dummy.next
 */
