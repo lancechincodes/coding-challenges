@@ -27,3 +27,25 @@ A:
 
 - Return dummy.next
 */
+
+// TC: O(n) traversing LL
+// SC: O(1) constant
+var removeElements = function(head, val) {
+    let dummy = new ListNode(-1)
+    dummy.next = head
+    let prev = dummy
+    let curr = head
+
+    while (curr) {
+        if (curr.val !== val) {
+            prev = curr
+            curr = curr.next
+        }
+        else {
+            prev.next = curr.next
+            curr = curr.next
+        }
+    }
+
+    return dummy.next
+};
