@@ -4,6 +4,20 @@
     // Easier and more convenient to use in real-life use case
 // 2) Linked list 
 
+// Time complexity analysis:
+// *Insertion - O(1)
+// *Removal - O(1)
+// Searching - O(N) // not imp
+// Access - O(N) // not imp
+
+// * only care about these ones for a stack
+
+// Use cases:
+// Call stack
+// Operations like undo/redo
+// Page routing (back/forward)
+// Not built-in JS, but relatively simple to implement
+
 // *****************************************************************************************
 // 1) Implementation w/ Array
 
@@ -82,6 +96,3 @@ class Stack {
         return temp.value
     }
 }
-
-
-
