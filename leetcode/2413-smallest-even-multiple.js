@@ -16,6 +16,8 @@ A:
 - Otherwise, n * 2 would be the smallest even multiple
 */
 
+// TC: O(1)
+// SC: O(1)
 var smallestEvenMultiple = function(n) {
     return n % 2 === 0 ? n : n * 2
 };
