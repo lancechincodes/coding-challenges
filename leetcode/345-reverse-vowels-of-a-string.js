@@ -35,3 +35,31 @@ A:
         - move left pointer
 - return joined version of s array
 */
+
+// C:
+// // TC: O(2n + m) where n is number of letters in s and m is numbers of vowels in s
+// // SC: O(m) where m is number of vowels in s
+var reverseVowels = function(s) {
+    let vowelArr = []
+    for (let letter of s) {
+        if (letter === 'a' || letter === 'A' || letter === 'e' || letter === 'E' || letter === 'i' || letter === "I" || letter === 'o' || letter === 'O' || letter === 'u' || letter === 'U') {
+            vowelArr.push(letter)
+        }
+    }
+
+    let reversedVowelArr = vowelArr.reverse() // also O(m) TC
+    let result = ''
+
+    let i = 0
+    for (let letter of s) {
+        if (letter === 'a' || letter === 'A' || letter === 'e' || letter === 'E' || letter === 'i' || letter === "I" || letter === 'o' || letter === 'O' || letter === 'u' || letter === 'U') {
+            result += reversedVowelArr[i]
+            i++
+        }
+        else {
+            result += letter
+        }
+    }
+
+    return result
+};
