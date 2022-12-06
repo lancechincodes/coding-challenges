@@ -63,3 +63,33 @@ var reverseVowels = function(s) {
 
     return result
 };
+
+// O:
+// 2 pointer solution
+// TC: O(n*m) where n is the number of letters in s (worst-case scenario) and m is the number of vowels (faster than prev)
+// SC: O(n) (using split method)
+var reverseVowels = function(s) {
+    let left = 0
+    let right = s.length - 1
+    let sArr = s.split("")
+    let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+
+    while (left < right) {
+        // if element at left AND right pointer are vowels
+        if (vowels.indexOf(sArr[left]) !== -1 && vowels.indexOf(sArr[right]) !== -1) {
+            [sArr[left], sArr[right]] = [sArr[right], sArr[left]] // destructuring assignment swap
+            // move both pointers
+            left++ 
+            right--
+        }
+        // if only element at left pointer is a vowel
+        if (vowels.indexOf(sArr[right]) === -1) { // aka right is not a vowel
+            right-- // move right pointer down
+        }
+        // if only element at right pointer is a vowel
+        if (vowels.indexOf(sArr[left]) === -1) { // aka left is not a vowel
+            left++ // move left pointer up
+        }
+    }
+    return sArr.join("")
+}
