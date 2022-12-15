@@ -9,4 +9,14 @@ Output: [2]
 Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 Output: [9,4]
 Explanation: [4,9] is also accepted.
+
+A:
+- Initialize hash obj
+- Loop through nums1 
+    - Add occurrence of element to hash
+- Initialize result arr
+- Loop through nums2
+    - if hash has element
+        - push to result arr
+- Return result
 */
