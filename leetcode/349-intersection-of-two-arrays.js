@@ -11,12 +11,14 @@ Output: [9,4]
 Explanation: [4,9] is also accepted.
 
 A:
-- Initialize hash obj
+- Initialize hash1 obj
 - Loop through nums1 
-    - Add occurrence of element to hash
+    - Add # of occurences of element to hash1
+- Initialize hash2 obj
 - Initialize result arr
 - Loop through nums2
-    - if hash has element
+    - Add # of occurences of element to hash1
+    - if hash1 has element AND element has only been seen once in hash2
         - push to result arr
-- Return result
+- Return result arr
 */
