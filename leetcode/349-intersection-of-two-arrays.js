@@ -22,3 +22,23 @@ A:
         - push to result arr
 - Return result arr
 */
+
+// C: Solution #1
+var intersection = function(nums1, nums2) {
+    const hash1 = {}
+    for (el of nums1) {
+        // if first time being seen, set occurence count to 1
+        // otherwise, set occurence count to increment by 1
+        !hash1[el] ? hash1[el] = 1 : hash1[el]++
+    }
+
+    const hash2 = {}
+    const result = []
+    for (el of nums2) {
+        !hash2[el] ? hash2[el] = 1 : hash2[el]++
+        // if element was seen in nums1 AND is the first time being seen in nums1
+        if (hash1[el] && hash2[el] === 1) result.push(el)
+    }
+
+    return result
+};
