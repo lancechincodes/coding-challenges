@@ -13,11 +13,11 @@ Explanation: [4,9] is also accepted.
 A:
 - Initialize hash1 obj
 - Loop through nums1 
-    - Add # of occurences of element to hash1
+    - Add # of occurrences of element to hash1
 - Initialize hash2 obj
 - Initialize result arr
 - Loop through nums2
-    - Add # of occurences of element to hash1
+    - Add # of occurrences of element to hash1
     - if hash1 has element AND element has only been seen once in hash2
         - push to result arr
 - Return result arr
@@ -27,8 +27,8 @@ A:
 var intersection = function(nums1, nums2) {
     const hash1 = {}
     for (el of nums1) {
-        // if first time being seen, set occurence count to 1
-        // otherwise, set occurence count to increment by 1
+        // if first time being seen, set occurrence count to 1
+        // otherwise, set occurrence count to increment by 1
         !hash1[el] ? hash1[el] = 1 : hash1[el]++
     }
 
