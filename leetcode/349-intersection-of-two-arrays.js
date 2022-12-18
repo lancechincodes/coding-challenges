@@ -24,6 +24,8 @@ A:
 */
 
 // C: Solution #1
+// TC: O(n + m) where n is # of elements in nums1 and m is # of elements in nums2
+// SC: O(n + m) where n is # of elements in nums1 and m is # of elements in nums2
 var intersection = function(nums1, nums2) {
     const hash1 = {}
     for (el of nums1) {
@@ -42,3 +44,5 @@ var intersection = function(nums1, nums2) {
 
     return result
 };
+
+// O: Optimized Solution #2 
