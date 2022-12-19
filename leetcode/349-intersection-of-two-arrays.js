@@ -45,4 +45,26 @@ var intersection = function(nums1, nums2) {
     return result
 };
 
-// O: Optimized Solution #2 
+// O: Optimized Solution #2: Goal is to only use 1 hashmap to optiize SC
+// TC: O(n + m) where n is # of elements in nums1 and m is # of elements in nums2
+// SC: O(n) where n is # of elements in nums1
+var intersection = function(nums1, nums2) {
+    const map = new Map()
+    for (let el of nums1) {
+        // ignore duplicate elements
+        if (!map.has(el)) {
+            map.set(el, 1)
+        }
+    }
+
+    // .filter will filter out elements in nums2 that return true
+    return nums2.filter(el => {
+        if (map.has(el)) {
+            map.delete(el) // delete from the map to avoid duplicate elements
+            return true
+        }
+        else {
+            return false
+        }
+    })
+}
