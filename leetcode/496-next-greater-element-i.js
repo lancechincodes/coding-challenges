@@ -24,4 +24,17 @@ Explanation: The next greater element for each value of nums1 is as follows:
 - 2 is underlined in nums2 = [1,2,3,4]. The next greater element is 3.
 - 4 is underlined in nums2 = [1,2,3,4]. There is no next greater element, so the answer is -1.
 
+A: 
+- Initialize ans array
+- Loop through numbers in nums1
+    - Initialize seen variable to false
+    - Loop through numbers in nums2
+        - Check when nums1[i] matches nums2[j]
+            - Set seen to be true 
+            - Push -1 if at last j index
+            - Continue to next j (skip the following if conditional)
+        - If seen is true
+            - 1) If nums2[j] <= nums1[i] AND j === nums2.length - 1 -> push -1 onto ans
+            - 2) Else if nums2[j] > nums1[i] -> push nums2[j] onto ans & break
+- Return ans array
 */
