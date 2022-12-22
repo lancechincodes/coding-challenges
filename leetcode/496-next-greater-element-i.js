@@ -38,3 +38,31 @@ A:
             - 2) Else if nums2[j] > nums1[i] -> push nums2[j] onto ans & break
 - Return ans array
 */
+
+// C:
+var nextGreaterElement = function(nums1, nums2) {
+
+    const ans = []
+    for (let i = 0; i < nums1.length; i++) {
+        let seen = false
+        for (let j = 0; j < nums2.length; j++) {
+            if (nums1[i] === nums2[j]) {
+                seen = true
+                if (j === nums2.length - 1) {
+                    ans.push(-1)
+                }
+                continue;
+            }
+
+            if (seen) {
+                if (nums2[j] <= nums1[i] && j === nums2.length - 1) ans.push(-1)
+                else if (nums2[j] > nums1[i]) {
+                    ans.push(nums2[j])
+                    break;
+                }
+                // else, check the next jth element (continue)
+            }
+        }
+    }
+    return ans
+};
