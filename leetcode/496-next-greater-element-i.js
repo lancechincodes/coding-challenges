@@ -43,7 +43,6 @@ A:
 // TC: O(n * m) where n is # of elements in nums1 and m is # of elements in nums2
 // SC: O(n) where n is equivalent to the length of nums1.length
 var nextGreaterElement = function(nums1, nums2) {
-
     const ans = []
     for (let i = 0; i < nums1.length; i++) {
         let seen = false
@@ -68,3 +67,5 @@ var nextGreaterElement = function(nums1, nums2) {
     }
     return ans
 };
+
+// O:
