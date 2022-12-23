@@ -40,6 +40,8 @@ A:
 */
 
 // C:
+// TC: O(n * m) where n is # of elements in nums1 and m is # of elements in nums2
+// SC: O(n) where n is equivalent to the length of nums1.length
 var nextGreaterElement = function(nums1, nums2) {
 
     const ans = []
