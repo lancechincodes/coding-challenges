@@ -68,4 +68,34 @@ var nextGreaterElement = function(nums1, nums2) {
     return ans
 };
 
-// O:
+// O: Goal is to find O(nums1.length + nums2.length) TC sol (Stack and map)
+var nextGreaterElement = function(nums1, nums2) {
+	const map = {};
+	const stack = [];
+    
+    console.log('nums1:', nums1);
+    console.log('nums2:', nums2);
+	
+	// For every n in nums2, fill the stack starting at n, and ending with (but not pushing) the first number in nums2 (after n) that is > n (since all numbers are unique)
+	// Once a number is found that passes this condition, add it to a hashmap as a value, with its key being the top of the stack (aka a value found earlier in nums2)
+	// This map has the "next largest element below it in nums2" as keys, and the "next greater elements" as the values
+
+    // Goal of this is to fill in the map with the key/value pairs of the next greatest element in nums2 
+	nums2.forEach(n => {
+        console.log('n:', n);
+        
+        // while stack is not empty and last value at stack is less than the next number
+		while (stack.length > 0 && stack[stack.length - 1] < n) {
+            // add the key of the last value at the stack with its corresponding matched next number and pop last top element in stack
+			map[stack.pop()] = n;
+            console.log('map:', map);
+		}
+        // the number in the stack is the target element that we are looking for its potential next greater element
+		stack.push(n);
+        
+        console.log('stack:', stack);
+	});
+	
+    // if the key for a number in nums1 does not exist in the map, it does not have a next greater element and thus it is given a -1 at that position in the ans array
+	return nums1.map(n => map[n] || -1);
+};
