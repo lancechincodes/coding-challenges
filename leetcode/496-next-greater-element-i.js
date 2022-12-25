@@ -69,6 +69,8 @@ var nextGreaterElement = function(nums1, nums2) {
 };
 
 // O: Goal is to find O(nums1.length + nums2.length) TC sol (Stack and map)
+// TC: O(n + m) where n is the nums1.length and m is the nums2.length
+// SC: O(a + b) where a is the number of next greater element key-value pairs and b is the number of elements in the stack
 var nextGreaterElement = function(nums1, nums2) {
 	const map = {};
 	const stack = [];
