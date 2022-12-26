@@ -101,3 +101,19 @@ var nextGreaterElement = function(nums1, nums2) {
     // if the key for a number in nums1 does not exist in the map, it does not have a next greater element and thus it is given a -1 at that position in the ans array
 	return nums1.map(n => map[n] || -1);
 };
+
+// Test Case 1: Sample Output
+/*
+nums1: [ 4, 1, 2 ]
+nums2: [ 1, 3, 4, 2 ]
+n: 1
+stack: [ 1 ]
+n: 3
+map: { '1': 3 }
+stack: [ 3 ]
+n: 4
+map: { '1': 3, '3': 4 }
+stack: [ 4 ]
+n: 2
+stack: [ 4, 2 ]
+*/
