@@ -12,4 +12,10 @@ Input: s = "abc", indices = [0,1,2]
 Output: "abc"
 Explanation: After shuffling, each character remains in its position.
 
+A:
+- Create result arr
+- Loop 0 to s.length-1
+- Assign result[indices[i]] to be equal to s[i]
+- Return result.join("") (converts array into string without spaces or commas)
+
 */
