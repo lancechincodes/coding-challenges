@@ -17,9 +17,11 @@ A:
 - Loop 0 to s.length-1
 - Assign result[indices[i]] to be equal to s[i]
 - Return result.join("") (converts array into string without spaces or commas)
-
 */
 
+// C:
+// TC: O(n) where n is s.length
+// SC: O(n) where n is s.length
 var restoreString = function(s, indices) {
     let result = []
     for (let i = 0; i < s.length; i++) {
