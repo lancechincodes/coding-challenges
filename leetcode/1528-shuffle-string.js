@@ -25,7 +25,16 @@ A:
 var restoreString = function(s, indices) {
     let result = []
     for (let i = 0; i < s.length; i++) {
-        result[indices[i]] = s[i]
+        result[indices[i]] = s[i] // Fill in array with corresponding character at indices index
+        // ex:
+            // result[4] = c
+            // result[5] = o
+            // result[6] = d
+            // result[7] = e
+            // result[0] = l
+            // result[2] = e
+            // result[1] = e
+            // result[3] = t
     }
-    return result.join("")
+    return result.join("") // ex: [l,e,e,t,c,o,d,e] -> "leetcode"
 };
